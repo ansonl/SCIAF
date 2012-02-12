@@ -5,6 +5,8 @@ Developer: Anson Liu
 
 Event: 1st public release of SCIAF
 
+I'm having trouble implementing git, so GitHub may not have the most recent version. Email me at support@apparentetch.com for the latest code.
+
 Features:
 Box selection (scroll from upper left to lower right, draw over units)
 Unit movement (left click to select, right click to move)
