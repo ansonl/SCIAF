@@ -1,0 +1,17 @@
+2/12/2012
+
+Project: SCIAF
+Developer: Anson Liu
+
+Event: 1st public release of SCIAF
+
+Features:
+Box selection (scroll from upper left to lower right, draw over units)
+Unit movement (left click to select, right click to move)
+Sounds
+Scrolling (move mouse to edge of screen or use arrow keys)
+
+How to install:
+1. Extract from archive
+2. Open index.html in a WebKit web browser (should work with most browsers)
+3. Use, I assume you know how to play StarCraft
