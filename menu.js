@@ -38,6 +38,10 @@ document.getElementById('playinner').onclick = function()
 	var interfaceeffects = document.getElementById('interfaceeffects');
 	interfaceeffects.play();
 
+	//Stop main menu soundtrack
+	var soundtrack = document.getElementById('soundtrack');
+	soundtrack.pause();	
+
 	//hide menu
 	Effect.Puff('menu', { duration: 1 });
 	//document.getElementById('menu').style.visibility = "hidden";
