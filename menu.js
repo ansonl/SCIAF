@@ -22,7 +22,7 @@ function setupMenu()
 	//play main menu soundtrack
 	document.getElementById('soundtrack').src = 'sounds/mainmenu.mp3';
 	var soundtrack = document.getElementById('soundtrack');
-	soundtrack.play();	
+	//soundtrack.play();	
 
 	//load random background for map
 	var randomBackground = Math.floor(Math.random()*4);
@@ -77,6 +77,6 @@ document.getElementById('featuresinner').onclick = function()
 
 function showFeatureAlert()
 {
-	alert('StarCraft in a Folder (SCIAF) Features:\n\nDIRECT UNIT CONTROL:\nLeft click to select unit; right click to issue Move command.\nPress S or Stop button to issue Stop command.\n\nDYNAMIC SPRITES:\nUnit and most images are dynamimc.\n\nOCTALDIRECTIONAL SCROLLING:\nMove mouse to edges of map to scroll or use arrow keys. Just like the original version!\n\nBOX SELECTION:\nSelect units en masse. Drag from UPPER LEFT to LOWER RIGHT to draw the box.\n\nUNIQUE SOUNDS:\nStraight from the game.\n\nOPEN SOURCE: Still working on setting up git. \nGet the code at\nhttps://github.com/ansonl/SCIAF\nor email me at\nsupport@apparentetch.com\nfor the source. Better to email for the most current code.\n\nIt would be best that the browser window be greater than 1024 x 768 and at the same ratio, 4:3. ');
+	alert('StarCraft in a Folder (SCIAF) Features:\n\nDIRECT UNIT CONTROL:\nLeft click to select unit; right click to issue Move command.\nPress S key or Stop button to issue Stop command.\nPress B key to build an Academy. Only the uppermost scv has the build function right now. \n\nDYNAMIC SPRITES:\nUnit and most images are dynamimc.\n\nOCTALDIRECTIONAL SCROLLING:\nMove mouse to edges of map to scroll or use arrow keys. Just like the original version!\n\nBOX SELECTION:\nSelect units en masse. Drag from UPPER LEFT to LOWER RIGHT to draw the box.\n\nUNIQUE SOUNDS:\nStraight from the game.\n\nOPEN SOURCE: Still working on setting up git. \nGet the code at\nhttps://github.com/ansonl/SCIAF\nor email me at\nsupport@apparentetch.com\nfor the source. Better to email for the most current code.\n\nIt would be best that the browser window be greater than 1024 x 768 and at the same ratio, 4:3. ');
 
 }
