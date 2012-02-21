@@ -32,6 +32,7 @@ body {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-align: center;
+	color: #d1e3f1;
 }
 #projectSubTitle {
 	position: absolute;
@@ -133,7 +134,7 @@ body {
 	z-index: 400;
 	background: #000000 repeat;
 }
-#scv1image {
+#scv1 {
 	background-image: url(images/scv/180.png);
 	width: 72px;
     height:72px;
@@ -142,37 +143,37 @@ body {
     cursor: url(images/cursor/magnifier.gif);
 	z-index: 500;
 }
-#scv1image:hover{
+#scv1:hover{
 
 }
-#scv2image {
+#scv2 {
 	background-image: url(images/scv/180.png);
 	width: 72px;
     height:72px;
     cursor: url(images/cursor/magnifier.gif);
 	z-index: 500;
 }
-#scv2image:hover{
+#scv2:hover{
 
 }
-#scv3image {
+#scv3 {
 	background-image: url(images/scv/180.png);
 	width: 72px;
     height:72px;
     cursor: url(images/cursor/magnifier.gif);
 	z-index: 500;
 }
-#scv3image:hover{
+#scv3:hover{
 
 }
-#scv4image {
+#scv4 {
 	background-image: url(images/scv/180.png);
 	width: 72px;
     height:72px;
 	z-index: 500;
 	cursor: url(images/cursor/magnifier.gif);
 }
-#scv4image:hover{
+#scv4:hover{
 
 }
 #targetcursor {
@@ -240,6 +241,15 @@ a:visited {
     left: 86.3%;
     bottom: 50%;
 	position: absolute;
+	visibility: hidden;
+}
+#build1image {
+	width: 5%;
+    height:15%;
+    left: 79.3%;
+    bottom: 28%;
+	position: absolute;
+	visibility: hidden;
 }
 #leftdownarrow {
 	width: 50px;

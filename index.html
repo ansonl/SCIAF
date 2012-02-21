@@ -7,8 +7,8 @@ StarCraft in a Folder - SCIAF
 <link rel="stylesheet" href="style.css" type="text/css"></link>
 <link href='https://fonts.googleapis.com/css?family=Exo:500' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="prototype.js"></script>
-<script type="text/javascript" src="scriptaculous.js"></script>
+<script type="text/javascript" src="scriptaculous/prototype.js"></script>
+<script type="text/javascript" src="scriptaculous/scriptaculous.js"></script>
 
 </head>
 <body oncontextmenu="return false;" onload="setupMenu();scrollTimer();">
@@ -22,8 +22,23 @@ StarCraft in a Folder - SCIAF
 
 <div id="console"><img id='consoleimage' src='images/interface/console.png'/>
 <img id='portraitimage' src='images/portraits/blank.png'/>
-<img id="stopimage" onclick="stopeffects()" src="images/interface/stop.png"/>
-<div id="minimap">A proof of StarCraft developed using HTML, CSS, and Javascript. Works best in WebKit browsers such as Chrome and Safari. <br>More content added from time to time. <br><br>Credits:<br><br>Anson Liu for coding<br>Thomas Fuchs for Scriptaculous<br>Blizzard Entertainment for StarCraft<br><br><a href="mailto:support@apparentetch.com">Goto <a href="https://github.com/ansonl/SCIAF">GitHub</a> or Email Anson Liu</a> if you would like the source code.<br><br><a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br>SCIAF by Anson Liu is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</div>
+<img id="stopimage" onclick="stopMovement()" src="images/interface/stop.png"/>
+<img id="build1image" onclick="build1image()" src="images/interface/academycmdicon.png"/>
+<div id="minimap">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=245110648881120";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<center>
+<br>
+<br>
+<div class="fb-like" data-href="https://www.facebook.com/starcraftinafolder" data-send="false" data-layout="box_count" data-width="100%" data-show-faces="true" data-action="recommend" data-colorscheme="dark" data-font="lucida grande"></div>
+</center>
+</div>
 </div>
 <div id="map">
 <div id='boxselection'></div>
@@ -36,24 +51,27 @@ StarCraft in a Folder - SCIAF
 <div id="rightdownarrow"></div>
 <div id="downarrow"></div>
 <div id='targetcursor'></div>
-<div id="scv1image" src="images/scv/180.png"></div>
-<div id="scv2image" src="images/scv/180.png"></div>
-<div id="scv3image" src="images/scv/180.png"></div>
-<div id="scv4image" src="images/scv/180.png"></div>
+<div id="scv1" src="images/scv/180.png"></div>
+<div id="scv2" src="images/scv/180.png"></div>
+<div id="scv3" src="images/scv/180.png"></div>
+<div id="scv4" src="images/scv/180.png"></div>
 
 </div>
 <audio id="soundtrack" src="" preload="auto" loop="loop"></audio>
 <audio id="scvready" src="" preload="auto">
 </audio>
-<audio id="scvvoice" src="" preload="auto">
+<audio id="unitvoice" src="" preload="auto">
 </audio>
 <audio id="interfaceeffects" src="" preload="auto">
 </audio>
 </div>
 <script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="units.js"></script>
+<script type="text/javascript" src="unitproduction.js"></script>
 <script type="text/javascript" src="scrolling.js"></script>
 <script type="text/javascript" src="mselection.js"></script>
+<script type="text/javascript" src="building.js"></script>
+<script type="text/javascript" src="command.js"></script>
 <script type="text/javascript" src="minimap.js"></script>
 </body>
 <html>

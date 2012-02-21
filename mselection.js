@@ -4,6 +4,7 @@ var boxSelection = 0;
 document.onmousedown = mouseDownEvent;
 
 document.getElementById('map').onmouseup = mouseUpEvent;
+document.getElementById('console').onmouseup = mouseUpEvent;
 
 document.getElementById('map').onmousemove = mouseMovedEvent;
 
@@ -28,8 +29,10 @@ function mouseUpEvent()
 
 function mouseMovedEvent()
 {
-	console.log('mousemoved');
-	if (mouseDown == 1 && boxSelection == 0)
+	 var consoleWidth = window.innerWidth; //basically width of window
+     var consoleTopOffset = window.innerHeight-187; //window height - 187 since console is 187px high
+	//check if mouse is out of console
+	if (mouseDown == 1 && boxSelection == 0 && window.event.clientX+window.pageXOffset > document.getElementById('console').offsetLeft && window.event.clientX+window.pageXOffset < document.getElementById('console').offsetLeft+consoleWidth && window.event.clientY+window.pageYOffset < consoleTopOffset && window.event.clientY+window.pageYOffset > 0)
 	{
 		//Show box selection div
 		new Effect.Move('boxselection', { x: window.event.clientX+window.pageXOffset, y: window.event.clientY+window.pageYOffset, mode: 'absolute',duration:0, transition: Effect.Transitions.linear,fps: 50,queue: { position: 'end', scope: 'cursor', limit:1} });
@@ -38,88 +41,62 @@ function mouseMovedEvent()
 		document.getElementById('boxselection').style.opacity = 0.3;
 		boxSelection = 1;
 		console.log('Box Selection started');
-		if(scvid = scv1image)
+		
+		//deselect all scvs
+		for (unitArrayAmount2=unitArray.length-1;unitArrayAmount2>=1;unitArrayAmount2--)
 		{
-			scv1selected=0;
+			var unitElement2 = 'scv'+unitArrayAmount2;
+			eval(unitElement2 + 'selected' + '=' + '0');
+			console.log('Deselected=' + unitElement2);
 		}
-		if(scvid = scv2image)
-		{
-			scv2selected=0;
-		}
-		if(scvid = scv3image)
-		{
-			scv3selected=0;
-		}
-		if(scvid = scv4image)
-		{
-			scv4selected=0;
-		}
+
+		//set portrait
+		portrait('blank.png');	
+		//hide commands
+		movementCommands('hidden');
+		buildCommands('hidden');	
 	}
 
 	if (mouseDown == 1 && boxSelection == 1)
 	{
 		document.getElementById('boxselection').style.width = window.event.clientX+window.pageXOffset - document.getElementById('boxselection').offsetLeft;
 		document.getElementById('boxselection').style.height = window.event.clientY+window.pageYOffset - document.getElementById('boxselection').offsetTop;
+		
+		//clear portrait image
+		portrait('blank.png');
 
 		//for all items in unitArray except item 0
 		for (unitArrayAmount=unitArray.length-1;unitArrayAmount>=1;unitArrayAmount--)
 		{
 			//what is selected unit's element id?
-			var unitElement = 'scv'+unitArrayAmount+'image';
+			var unitElement = 'scv'+unitArrayAmount;
 
 			//check if unit coordinates are in box
-			if(document.getElementById(unitElement).offsetLeft+36 > document.getElementById('boxselection').offsetLeft+36 && document.getElementById(unitElement).offsetLeft < window.event.clientX+window.pageXOffset && document.getElementById(unitElement).offsetTop+36 > document.getElementById('boxselection').offsetTop && document.getElementById(unitElement).offsetTop+36 < window.event.clientX+window.pageYOffset)
+			if(document.getElementById(unitElement).offsetLeft+36 > document.getElementById('boxselection').offsetLeft && document.getElementById(unitElement).offsetLeft+36 < window.event.clientX+window.pageXOffset && document.getElementById(unitElement).offsetTop+36 > document.getElementById('boxselection').offsetTop && document.getElementById(unitElement).offsetTop+36 < window.event.clientX+window.pageYOffset)
 			{
 
-				console.log('in x of scv' + unitArrayAmount + 'image');
-				
-				//select appropriate unit
-				if(unitElement == 'scv1image')
-				{
-					scv1selected = 1;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv2image')
-				{
-					scv2selected = 1;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv3image')
-				{
-					scv3selected = 1;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv4image')
-				{
-					scv4selected = 1;
-					console.log(unitElement);
-				}
+				eval(unitElement + 'selected' + '=' + '1');
+				console.log('Selected=' + unitElement);
 
+		
+
+				//random scv what sound
+				var randomSoundtrack = Math.floor(Math.random()*2);
+				console.log("Random scv WHAT voice: "+randomSoundtrack);
+				document.getElementById('unitvoice').src = 'sounds/scv/TSCWht0'+randomSoundtrack+'.mp3';
+				var whatvoice = document.getElementById('unitvoice');
+				whatvoice.play();	
+				//set portrait
+				portrait('scv.png');	
+				//show commands
+				movementCommands('visible');
+				buildCommands('visible');	
 			}
-			else
+			else //deselect if unit not in box
 			{
-				//deselect appropriate unit
-				if(unitElement == 'scv1image')
-				{
-					scv1selected = 0;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv2image')
-				{
-					scv2selected = 0;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv3image')
-				{
-					scv3selected = 0;
-					console.log(unitElement);
-				}
-				if(unitElement == 'scv4image')
-				{
-					scv4selected = 0;
-					console.log(unitElement);
-				}
-			}
+				eval(unitElement + 'selected' + '=' + '0');
+				console.log('Deselected=' + unitElement);
+			}		
 		}
 	}
 }

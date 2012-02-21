@@ -1,3 +1,5 @@
+var music = 0; // 0 = no background music 1 = yes background music
+
 function setupMenu()
 {	
 	//load random background for menu
@@ -22,7 +24,15 @@ function setupMenu()
 	//play main menu soundtrack
 	document.getElementById('soundtrack').src = 'sounds/mainmenu.mp3';
 	var soundtrack = document.getElementById('soundtrack');
-	//soundtrack.play();	
+	if (music == 1)
+	{
+		soundtrack.play();	
+	}	
+	
+	//play swish in sound
+	document.getElementById('interfaceeffects').src = 'sounds/swishin.mp3';
+	var swish = document.getElementById('interfaceeffects');
+	//swish.play();
 
 	//load random background for map
 	var randomBackground = Math.floor(Math.random()*4);
@@ -32,15 +42,30 @@ function setupMenu()
 	document.getElementById('map').style.background = part1 + randomBackground + part2;
 
 }
-document.getElementById('playinner').onclick = function() 
+
+document.getElementById('playinner').onmouseover = function() 
 {
-	document.getElementById('interfaceeffects').src = 'sounds/transmission.mp3';
+	document.getElementById('interfaceeffects').src = 'sounds/mouseover.mp3';
 	var interfaceeffects = document.getElementById('interfaceeffects');
 	interfaceeffects.play();
+}
+
+document.getElementById('playinner').onclick = function() 
+{
+	document.getElementById('interfaceeffects').src = 'sounds/mousedown.mp3';
+	var interfaceeffects = document.getElementById('interfaceeffects');
+	interfaceeffects.play();
+
+	//play swish out sound
+	document.getElementById('interfaceeffects').src = 'sounds/swishout.mp3';
+	var swish = document.getElementById('interfaceeffects');
+	swish.play();
 
 	//Stop main menu soundtrack
 	var soundtrack = document.getElementById('soundtrack');
 	soundtrack.pause();	
+
+	
 
 	//hide menu
 	Effect.Puff('menu', { duration: 1 });
@@ -63,12 +88,23 @@ document.getElementById('playinner').onclick = function()
 	mouseDown = 0; //stop box selection
 
 	//seperate delay for SCV Ready and Map soundtracks
+	if (music == 1)
+	{	
 	setTimeout('playSCVReady()',1000);
 	setTimeout('playMapSoundTrack()',3000);
+	}
 }
+
+document.getElementById('featuresinner').onmouseover = function() 
+{
+	document.getElementById('interfaceeffects').src = 'sounds/mouseover.mp3';
+	var interfaceeffects = document.getElementById('interfaceeffects');
+	interfaceeffects.play();
+}
+
 document.getElementById('featuresinner').onclick = function() 
 {
-	document.getElementById('interfaceeffects').src = 'sounds/transmission.mp3';
+	document.getElementById('interfaceeffects').src = 'sounds/mousedown.mp3';
 	var interfaceeffects = document.getElementById('interfaceeffects');
 	interfaceeffects.play();	
 

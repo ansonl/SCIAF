@@ -1,9 +1,9 @@
-2/12/2012
+2/20/2012
 
 Project: SCIAF
 Developer: Anson Liu
 
-Event: 1st public release of SCIAF
+Event: Building, unit production added, Code cleaned up
 
 Try it out at: http://apparentetch.com/sc
 
@@ -12,6 +12,9 @@ Box selection (scroll from upper left to lower right, draw over units)
 Unit movement (left click to select, right click to move)
 Sounds
 Scrolling (move mouse to edge of screen or use arrow keys)
+Commands (S-stop, B-build academy)
+Buildings
+SCV Production (run javascript:makeSCV(); in the address bar to us this feature) 
 
 How to install:
 1. Extract from archive
