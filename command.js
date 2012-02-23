@@ -28,18 +28,30 @@ function playInterfaceEffect(file)
 	interfaceeffects.play();
 }
 
+//play file as secondary interface effect
+function playInterfaceEffect2(file) 
+{
+	document.getElementById('interfaceeffects2').src = 'sounds/' + file;
+	var interfaceeffects2 = document.getElementById('interfaceeffects2');
+	interfaceeffects2.play();
+}
+
 function build1image() {
-	//if(scv1selected==1||scv2selected==1||scv3selected==1||scv4selected==1)	
-	if(scv1selected==1)	
-	{	
-		buildingMode = 1;
+
+	for (unitArrayAmount=unitArray.length-1;unitArrayAmount>=1;unitArrayAmount--)
+	{
+		var unitElement = 'scv'+unitArrayAmount+'selected';
+		var selectedStatus = eval(unitElement);
+
+		if(selectedStatus=='1')
+		{	
+		eval('scv' + unitArrayAmount + 'buildingMode = 1');
 		mapCursor('academy/academyplc.png');
 			
 		playInterfaceEffect('button.mp3');
-	}
-	else
-	{
-		playInterfaceEffect('buzz.mp3');
+
+		unitArrayAmount = 1; //stop scanning as we already have one scv to set to build
+		}
 	}
 }
 

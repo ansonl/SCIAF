@@ -8,6 +8,11 @@ function makeSCV(ccid)
 	eval('window.scv' + numberOfSCV + 'building' + '=' + '0');
 	eval('window.scv' + numberOfSCV + 'move' + '=' + '0');	
 	eval('window.scv' + numberOfSCV + 'selected' + '=' + '0');
+	eval('window.scv' + numberOfSCV + 'buildingMode' + '=' + '0');
+	eval('window.scv' + numberOfSCV + 'building' + '=' + '0');
+	eval('window.scv' + numberOfSCV + 'buildingSet' + '=' + '0');
+	eval('window.scv' + numberOfSCV + 'buildingx' + '=' + '0');
+	eval('window.scv' + numberOfSCV + 'buildingy' + '=' + '0');
 	
 	//create div for scv
 	newSCV = document.createElement('div'); 
@@ -28,8 +33,14 @@ document.getElementById('map').appendChild(newSCV);
 	//set cursor
 	document.getElementById(newSCVId).style.cursor = 'url(images/cursor/magnifier.gif)';
 		
-	//add building to array
+	//add scvid to array
 	unitArray[numberOfSCV]=newSCV;
+
+var buildStateVar = eval("'scv" + "" + numberOfSCV + "" + "building'");
+console.log(buildStateVar);	
+
+	//add scv build state to array
+	scvbuildingModeArray[numberOfSCV]=buildStateVar;
 
 
 }
