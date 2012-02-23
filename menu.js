@@ -30,9 +30,7 @@ function setupMenu()
 	}	
 	
 	//play swish in sound
-	document.getElementById('interfaceeffects').src = 'sounds/swishin.mp3';
-	var swish = document.getElementById('interfaceeffects');
-	//swish.play();
+	//playInterfaceEffect('swishin.mp3');
 
 	//load random background for map
 	var randomBackground = Math.floor(Math.random()*4);
@@ -52,21 +50,16 @@ document.getElementById('playinner').onmouseover = function()
 
 document.getElementById('playinner').onclick = function() 
 {
-	document.getElementById('interfaceeffects').src = 'sounds/mousedown.mp3';
-	var interfaceeffects = document.getElementById('interfaceeffects');
-	interfaceeffects.play();
+	//play mouse down sound
+	playInterfaceEffect2('mousedown.mp3');
 
 	//play swish out sound
-	document.getElementById('interfaceeffects').src = 'sounds/swishout.mp3';
-	var swish = document.getElementById('interfaceeffects');
-	swish.play();
+	playInterfaceEffect('swishout.mp3');
 
 	//Stop main menu soundtrack
 	var soundtrack = document.getElementById('soundtrack');
 	soundtrack.pause();	
-
 	
-
 	//hide menu
 	Effect.Puff('menu', { duration: 1 });
 	//document.getElementById('menu').style.visibility = "hidden";

@@ -9,7 +9,6 @@ var scv1selected = 0;
 var scv2selected = 0;
 var scv3selected = 0;
 var scv4selected = 0;
-var scvid = '';
 
 var scv1building = 0;
 var scv2building = 0;
@@ -42,15 +41,37 @@ function playMapSoundTrack()
 
 document.getElementById('map').onclick = function() {
 	//selectUnit();
-	if(selectUnit()!=true && buildingMode == 0)
+	if(selectUnit()!=true)
 	{
 		selectBuilding();
 	}
-
+		for (scvbuildingModeArrayAmount=scvbuildingModeArray.length-1;scvbuildingModeArrayAmount>=1;scvbuildingModeArrayAmount--)
+		{
+			var scvBuildingMode = 'scv'+scvbuildingModeArrayAmount+'buildingMode';
+			var buildingModeStatus = eval(scvBuildingMode);
+			if(buildingModeStatus=='1')
+			{
+				build1('scv'+scvbuildingModeArrayAmount);
+				scvbuildingModeArrayAmount = 1; //stop scanning as we already have one scv to build with
+			}
+		}
+/*
 	if(buildingMode == 1)
 	{
-		build1();
+			//check which scvs are selected
+	for (unitArrayAmount=unitArray.length-1;unitArrayAmount>=1;unitArrayAmount--)
+	{
+		var unitElement = 'scv'+unitArrayAmount+'selected';
+		var selectedStatus = eval(unitElement);
+
+		if(selectedStatus=='1')
+		{
+			build1('scv'+unitArrayAmount);
+			unitArrayAmount = 1; //stop scanning as we already have one scv to build with
+		}	
 	}
+	}
+*/
 }
 
 function selectUnit()
